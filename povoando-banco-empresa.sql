@@ -1,4 +1,14 @@
+--roda primeiro esse
+SELECT conname
+FROM pg_constraint
+WHERE conrelid = 'departamento'::regclass AND contype = 'f';
 
+--roda segundo esse
+ALTER TABLE departamento
+    ALTER CONSTRAINT departamento_cpf_gerente_fkey DEFERRABLE INITIALLY DEFERRED;
+
+
+--roda terceiro o script de povoar 
 INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente) VALUES ('Dep_1', 1, '11111111111', '2021-01-01');
 INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente) VALUES ('Dep_2', 2, '22222222222', '2021-02-01');
 INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente) VALUES ('Dep_3', 3, '33333333333', '2021-03-01');
@@ -42,7 +52,7 @@ INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente) VALU
 
 
 INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr) VALUES ('João', 'A', 'Silva', '11111111111', '1980-05-10', 'Rua Alfa, 10', 'M', 7000.00, '11111111111', 1);
-INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereço, Sexo, Salario, Cpf_supervisor, Dnr) VALUES ('Maria', 'B', 'Souza', '22222222222', '1985-08-22', 'Rua Beta, 20', 'F', 9000.00, '11111111111', 2);
+INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr) VALUES ('Maria', 'B', 'Souza', '22222222222', '1985-08-22', 'Rua Beta, 20', 'F', 9000.00, '11111111111', 2);
 INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr) VALUES ('José', 'C', 'Oliveira', '33333333333', '1977-12-31', 'Rua Gama, 30', 'M', 12000.00, '22222222222', 3);
 INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr) VALUES ('Ana', 'D', 'Costa', '44444444444', '1990-04-18', 'Rua Delta, 40', 'F', 8000.00, '33333333333', 4);
 INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr) VALUES ('Carlos', 'E', 'Lima', '55555555555', '1982-09-22', 'Rua Épsilon, 50', 'M', 10500.00, '44444444444', 5);
@@ -309,5 +319,6 @@ INSERT INTO TRABALHA_EM (Fcpf, Pnr, Horas) VALUES ('50000000050', 10, 13.5);
 
 
 
-
-
+--roda por último esse
+ALTER TABLE departamento
+  ALTER CONSTRAINT departamento_cpf_gerente_fkey NOT DEFERRABLE;
