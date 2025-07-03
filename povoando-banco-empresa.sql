@@ -318,6 +318,115 @@ INSERT INTO TRABALHA_EM (Fcpf, Pnr, Horas) VALUES ('50000000049', 9, 12.0);
 INSERT INTO TRABALHA_EM (Fcpf, Pnr, Horas) VALUES ('50000000050', 10, 13.5);
 
 
+INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente)
+VALUES 
+('DepSemFunc_1', 101, NULL, NULL),
+('DepSemFunc_2', 102, NULL, NULL),
+('DepSemFunc_3', 103, NULL, NULL),
+('DepSemFunc_4', 104, NULL, NULL),
+('DepSemFunc_5', 105, NULL, NULL),
+('DepSemFunc_6', 106, NULL, NULL),
+('DepSemFunc_7', 107, NULL, NULL),
+('DepSemFunc_8', 108, NULL, NULL),
+('DepSemFunc_9', 109, NULL, NULL),
+('DepSemFunc_10', 110, NULL, NULL);
+
+
+
+INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente)
+VALUES 
+('DepSemProj_1', 201, NULL, NULL),
+('DepSemProj_2', 202, NULL, NULL),
+('DepSemProj_3', 203, NULL, NULL),
+('DepSemProj_4', 204, NULL, NULL),
+('DepSemProj_5', 205, NULL, NULL),
+('DepSemProj_6', 206, NULL, NULL),
+('DepSemProj_7', 207, NULL, NULL),
+('DepSemProj_8', 208, NULL, NULL),
+('DepSemProj_9', 209, NULL, NULL),
+('DepSemProj_10', 210, NULL, NULL);
+
+
+
+
+
+INSERT INTO PROJETO (Projnumero, Projnome, Projlocal, Dnum)
+VALUES 
+(301, 'ProjSemFunc_1', 'Local A', 201),
+(302, 'ProjSemFunc_2', 'Local B', 202),
+(303, 'ProjSemFunc_3', 'Local C', 203),
+(304, 'ProjSemFunc_4', 'Local D', 204),
+(305, 'ProjSemFunc_5', 'Local E', 205),
+(306, 'ProjSemFunc_6', 'Local F', 206),
+(307, 'ProjSemFunc_7', 'Local G', 207),
+(308, 'ProjSemFunc_8', 'Local H', 208),
+(309, 'ProjSemFunc_9', 'Local I', 209),
+(310, 'ProjSemFunc_10', 'Local J', 210);
+
+
+
+
+INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr)
+VALUES
+('FuncSemDep_1', 'A', 'Solo', '70100000001', '1980-01-01', 'Rua 1', 'M', 3500.00, NULL, 101),
+('FuncSemDep_2', 'B', 'Solo', '70100000002', '1981-02-02', 'Rua 2', 'F', 3600.00, NULL, 102),
+('FuncSemDep_3', 'C', 'Solo', '70100000003', '1982-03-03', 'Rua 3', 'M', 3700.00, NULL, 103),
+('FuncSemDep_4', 'D', 'Solo', '70100000004', '1983-04-04', 'Rua 4', 'F', 3800.00, NULL, 104),
+('FuncSemDep_5', 'E', 'Solo', '70100000005', '1984-05-05', 'Rua 5', 'M', 3900.00, NULL, 105),
+('FuncSemDep_6', 'F', 'Solo', '70100000006', '1985-06-06', 'Rua 6', 'F', 4000.00, NULL, 106),
+('FuncSemDep_7', 'G', 'Solo', '70100000007', '1986-07-07', 'Rua 7', 'M', 4100.00, NULL, 107),
+('FuncSemDep_8', 'H', 'Solo', '70100000008', '1987-08-08', 'Rua 8', 'F', 4200.00, NULL, 108),
+('FuncSemDep_9', 'I', 'Solo', '70100000009', '1988-09-09', 'Rua 9', 'M', 4300.00, NULL, 109),
+('FuncSemDep_10', 'J', 'Solo', '70100000010', '1989-10-10', 'Rua 10', 'F', 4400.00, NULL, 110);
+
+
+
+INSERT INTO PROJETO (Projnumero, Projnome, Projlocal, Dnum)
+VALUES
+(401, 'ProjSemLocal_1', NULL, 1),
+(402, 'ProjSemLocal_2', NULL, 2),
+(403, 'ProjSemLocal_3', NULL, 3),
+(404, 'ProjSemLocal_4', NULL, 4),
+(405, 'ProjSemLocal_5', NULL, 5),
+(406, 'ProjSemLocal_6', NULL, 6),
+(407, 'ProjSemLocal_7', NULL, 7),
+(408, 'ProjSemLocal_8', NULL, 8),
+(409, 'ProjSemLocal_9', NULL, 9),
+(410, 'ProjSemLocal_10', NULL, 10);
+
+
+
+INSERT INTO FUNCIONARIO (Pnome, Minicial, Unome, Cpf, Datanasc, Endereco, Sexo, Salario, Cpf_supervisor, Dnr)
+VALUES
+('FuncSemDepto_1', 'K', 'Solto', '70200000001', '1980-01-01', 'Rua X1', 'M', 3500.00, NULL, NULL),
+('FuncSemDepto_2', 'L', 'Solto', '70200000002', '1981-02-02', 'Rua X2', 'F', 3600.00, NULL, NULL),
+('FuncSemDepto_3', 'M', 'Solto', '70200000003', '1982-03-03', 'Rua X3', 'M', 3700.00, NULL, NULL),
+('FuncSemDepto_4', 'N', 'Solto', '70200000004', '1983-04-04', 'Rua X4', 'F', 3800.00, NULL, NULL),
+('FuncSemDepto_5', 'O', 'Solto', '70200000005', '1984-05-05', 'Rua X5', 'M', 3900.00, NULL, NULL),
+('FuncSemDepto_6', 'P', 'Solto', '70200000006', '1985-06-06', 'Rua X6', 'F', 4000.00, NULL, NULL),
+('FuncSemDepto_7', 'Q', 'Solto', '70200000007', '1986-07-07', 'Rua X7', 'M', 4100.00, NULL, NULL),
+('FuncSemDepto_8', 'R', 'Solto', '70200000008', '1987-08-08', 'Rua X8', 'F', 4200.00, NULL, NULL),
+('FuncSemDepto_9', 'S', 'Solto', '70200000009', '1988-09-09', 'Rua X9', 'M', 4300.00, NULL, NULL),
+('FuncSemDepto_10', 'T', 'Solto', '70200000010', '1989-10-10', 'Rua X10', 'F', 4400.00, NULL, NULL);
+
+
+INSERT INTO DEPARTAMENTO (Dnome, Dnumero, Cpf_gerente, Data_inicio_gerente)
+VALUES 
+('DepSemLocal_1', 301, NULL, NULL),
+('DepSemLocal_2', 302, NULL, NULL),
+('DepSemLocal_3', 303, NULL, NULL),
+('DepSemLocal_4', 304, NULL, NULL),
+('DepSemLocal_5', 305, NULL, NULL),
+('DepSemLocal_6', 306, NULL, NULL),
+('DepSemLocal_7', 307, NULL, NULL),
+('DepSemLocal_8', 308, NULL, NULL),
+('DepSemLocal_9', 309, NULL, NULL),
+('DepSemLocal_10', 310, NULL, NULL);
+
+
+
+
+
 
 --roda por último esse
 ALTER TABLE departamento
