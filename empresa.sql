@@ -1,8 +1,8 @@
 -- 1. Tabela DEPARTAMENTO (não depende de nenhuma outra)
 CREATE TABLE DEPARTAMENTO (
-  Dnome                 VARCHAR(15) NOT NULL,
-  Dnumero               INT         NOT NULL,
-  Cpf_gerente           CHAR(11)    NOT NULL,
+  Dnome                 VARCHAR(100) NOT NULL,
+  Dnumero               INT          NOT NULL,
+  Cpf_gerente           CHAR(11)     NOT NULL,
   Data_inicio_gerente   DATE,
   PRIMARY KEY (Dnumero),
   UNIQUE (Dnome)
@@ -11,12 +11,12 @@ CREATE TABLE DEPARTAMENTO (
 
 -- 2. Tabela FUNCIONARIO (depende de DEPARTAMENTO, mas referência circular com Cpf_supervisor e Cpf_gerente)
 CREATE TABLE FUNCIONARIO (
-  Pnome           VARCHAR(15)     NOT NULL,
+  Pnome           VARCHAR(100)    NOT NULL,
   Minicial        CHAR,
-  Unome           VARCHAR(15)     NOT NULL,
+  Unome           VARCHAR(100)    NOT NULL,
   Cpf             CHAR(11)        NOT NULL,
   Datanasc        DATE,
-  Endereco        VARCHAR(30),
+  Endereco        VARCHAR(100),
   Sexo            CHAR,
   Salario         DECIMAL(10,2),
   Cpf_supervisor  CHAR(11),
@@ -37,17 +37,17 @@ ALTER TABLE DEPARTAMENTO
 -- 4. LOCALIZACAO_DEP depende de DEPARTAMENTO
 CREATE TABLE LOCALIZACAO_DEP (
   Dnumero  INT           NOT NULL,
-  Dlocal   VARCHAR(50)   NOT NULL,   -- aumentei para 50
+  Dlocal   VARCHAR(50)   NOT NULL,
   PRIMARY KEY (Dnumero, Dlocal),
   FOREIGN KEY (Dnumero) REFERENCES DEPARTAMENTO(Dnumero)
 );
 
 -- 5. PROJETO depende de DEPARTAMENTO
 CREATE TABLE PROJETO (
-  Projnome   VARCHAR(15) NOT NULL,
-  Projnumero INT         NOT NULL,
-  Projlocal  VARCHAR(50),             -- aumentei para 50
-  Dnum       INT         NOT NULL,
+  Projnome   VARCHAR(100) NOT NULL,
+  Projnumero INT          NOT NULL,
+  Projlocal  VARCHAR(50),
+  Dnum       INT          NOT NULL,
   PRIMARY KEY (Projnumero),
   UNIQUE (Projnome),
   FOREIGN KEY (Dnum) REFERENCES DEPARTAMENTO(Dnumero)
@@ -55,7 +55,7 @@ CREATE TABLE PROJETO (
 
 -- 6. FUNCIONARIO já existe, então TRABALHA_EM pode ser criada
 CREATE TABLE TRABALHA_EM (
-  Fcpf   CHAR(11)        NOT NULL,    -- alterado para 11 dígitos
+  Fcpf   CHAR(11)        NOT NULL,
   Pnr    INT             NOT NULL,
   Horas  DECIMAL(3,1)    NOT NULL,
   PRIMARY KEY (Fcpf, Pnr),
@@ -66,12 +66,10 @@ CREATE TABLE TRABALHA_EM (
 -- 7. DEPENDENTE depende apenas de FUNCIONARIO
 CREATE TABLE DEPENDENTE (
   Fcpf              CHAR(11)      NOT NULL,
-  Nome_dependente   VARCHAR(15)   NOT NULL,
+  Nome_dependente   VARCHAR(100)  NOT NULL,
   Sexo              CHAR,
   Datanasc          DATE,
   Parentesco        VARCHAR(8),
   PRIMARY KEY (Fcpf, Nome_dependente),
   FOREIGN KEY (Fcpf) REFERENCES FUNCIONARIO(Cpf)
 );
-
-
